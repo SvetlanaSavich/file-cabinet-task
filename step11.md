@@ -50,20 +50,29 @@
 
 #### Для .NET Core
 
-Установите пакеты:
-
-* Microsoft.Extensions.Configuration
-* Microsoft.Extensions.Configuration.Binder
-* Microsoft.Extensions.Configuration.FileExtensions
-* Microsoft.Extensions.Configuration.Json
-
-Реализуйте загрузку критериев валидации из конфигурационного файла с применением [ConfigurationBinder.Get<T>](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationbinder.get). См. [Bind to an object graph](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.0#bind-to-an-object-graph).
+Реализуйте загрузку критериев валидации из конфигурационного файла с применением [ConfigurationBinder.Get<T>](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationbinder.get). См. [How to use Configuration API in .net core console application](https://garywoodfine.com/configuration-api-net-core-console-application/).
 
 
 #### Для .NET Framework
 
 Установите пакет _Newtonsoft.Json_ и реализуйте загрузку параметров через [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).
 
+
 #### Журналирование работы сервиса
+
+Создайте новый класс _ServiceMeter_, который должен измерять время работы методов сервисов и выводить на экран. Реализуйте шаблон [Decorator](https://refactoring.guru/ru/design-patterns/decorator) как показано на диаграмме классов:
+
+![Class Diagram for ServiceMeter](images/step11-stopwatch-decorator.png)
+
+Последовательность работы методов класса _ServiceMeter_:
+
+![Sequence Diagram for ServiceMeter](images/step11-stopwatch-decorator-sequence.png)
+
+Пример вывода измерения:
+
+```
+Create method duration is 384 ticks.
+```
+
 
 #### Журналирование времени работы сервиса
